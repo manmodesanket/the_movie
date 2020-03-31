@@ -34,6 +34,11 @@ signup.addEventListener('submit', e=>{
         window.alert("Error: " + errorCode + errorMessage);
         // ...
     });
+    const db = firebase.firestore();
+    db.collection('user').doc(email).set({
+        email: email,
+        movies: []
+    });
 });
 
 

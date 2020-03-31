@@ -3,14 +3,13 @@ firebase.auth().onAuthStateChanged(function (user) {
         const email = user.email;
         const db = firebase.firestore();
 
-        db.collection('user').get().then(snapshot => {
+        db.collection('user').where('email', '==', email).get().then(snapshot => {
             snapshot.docs.forEach(doc => {
                 if (doc.data().email === email) {
                     for (let i = 0; i < doc.data().movies.length; i++) {
                         console.log(doc.data().movies[i]);
                         const movie = doc.data().movies[i];
                         const request = new XMLHttpRequest();
-                        console.log(movie);
                         const link = 'http://www.omdbapi.com/?&apikey=41888ccf&t=';
                         request.open('GET', link.concat(movie));
                         request.send();
@@ -30,8 +29,3 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.location.href = "../../index.html";
     }
 });
-
-
-
-
-
