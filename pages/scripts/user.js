@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     var obj = JSON.parse(request.responseText);
                     console.log(obj.Title);
                     const result = document.getElementById('result');
-                    result.innerHTML += request.responseText;
+                    result.innerHTML = request.responseText;
                     var add = document.getElementById("add");
                     add.addEventListener('click', () => {
                         const db = firebase.firestore();

@@ -6,28 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>User</title>
 </head>
 
 <body>
-    <div class="welcome">
-        
-    </div>
-    <button type="submit" class="btn btn-primary" id="logout">Logout</button>
+    <nav class="navbar">
+        <div class="col-3">
+            <a class="navbar-brand" href="#"><h3>IMDB</h3></a>
+            <div class="welcome"></div>
+        </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="fav.html" class="nav-link">Favourites</a></li>
+        </ul>
+        <button type="submit" class="btn btn-secondary" id="logout">Logout</button>
+    </nav>
     <div class="container">
         <div class="search">
-            <div class=="row">
+            <div class="row">
                 <form class="search-form">
                     <input type="text" id="search" placeholder="Enter name of Movie">
                     <button type="submit" class="btn btn-primary" id="search-button">Search</button>
                 </form>
+                <button class="btn btn-primary" id="add">Add to Favourites</button>
             </div>
         </div>
     </div>
     <div class="container" id="result">
-        <button class="btn btn-primary" id="add">Add to Favourites</button>
+
     </div>
-    <a href="fav.html">Favourites</a>
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -1,0 +1,30 @@
+.navbar {
+    background-image: url('../../img/bg6.jpg');
+    background-size: 800px 100px;
+    background-color: transparent;
+    height: 110px;
+    color: white;
+}
+
+.navbar-brand {
+    margin-left: 40px;
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.search {
+    margin-top: 50px;
+}
+
+#search{
+    height: 40px;
+    width: 500px;
+}
+
+#add {
+    margin-left: 5px;
+    height: 40px
+}
