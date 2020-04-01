@@ -1,3 +1,33 @@
+function createCard(obj) {
+    var mainCard = document.createElement('div');
+    mainCard.setAttribute('class', 'row');
+    var card = document.createElement('div');
+    card.setAttribute('class', 'card col');
+    var imgDiv = document.createElement('div');
+    imgDiv.setAttribute('class', 'col-4');
+    var img = document.createElement('img');
+    img.setAttribute('src', obj.Poster);
+    imgDiv.appendChild(img);
+    var header = document.createElement('div');
+    header.setAttribute('class', 'card-header');
+    var body = document.createElement('div');
+    body.setAttribute('class', 'card-body');
+    var title = document.createElement('div');
+    title.setAttribute('class', 'card-title');
+    var text = document.createElement('div');
+    text.setAttribute('class', 'card');
+    header.textContent = "Movie";
+    title.textContent = obj.Title;
+    text.textContent = obj.Plot;
+    card.appendChild(header);
+    body.appendChild(title);
+    body.appendChild(text);
+    card.appendChild(body);
+    mainCard.appendChild(imgDiv);
+    mainCard.appendChild(card);
+    return mainCard;
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
@@ -20,9 +50,12 @@ firebase.auth().onAuthStateChanged(function (user) {
             request.addEventListener('readystatechange', () => {
                 if (request.readyState === 4 && request.status === 200) {
                     var obj = JSON.parse(request.responseText);
-                    console.log(obj.Title);
+                    console.log(obj);
                     const result = document.getElementById('result');
-                    result.innerHTML = request.responseText;
+                    //result.innerHTML = request.responseText;
+                    const card = createCard(obj);
+                    result.innerHTML = "";
+                    result.append(card);
                     var add = document.getElementById("add");
                     add.addEventListener('click', () => {
                         const db = firebase.firestore();
