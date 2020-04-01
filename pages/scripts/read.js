@@ -10,18 +10,47 @@ function createCard(obj) {
     imgDiv.appendChild(img);
     var header = document.createElement('div');
     header.setAttribute('class', 'card-header');
+    var h5 = document.createElement('h5');
     var body = document.createElement('div');
     body.setAttribute('class', 'card-body');
+    var plot = document.createElement('p');
+    plot.setAttribute('class', 'plot');
+    var director = document.createElement('p');
+    director.setAttribute('class', 'director');
+    var writers = document.createElement('p');
+    writers.setAttribute('class', 'writers');
+    var actors = document.createElement('p');
+    actors.setAttribute('class', 'actors');
     var title = document.createElement('div');
     title.setAttribute('class', 'card-title');
+    var ul = document.createElement('ul');
+    obj.Ratings.forEach((rating)=>{
+        var li = document.createElement('li');
+        var ratingString = rating.Source; 
+        ratingString += ": " + rating.Value;
+        li.textContent = ratingString;
+        ul.appendChild(li);
+    });
     var text = document.createElement('div');
-    text.setAttribute('class', 'card');
-    header.textContent = "Movie";
-    title.textContent = obj.Title;
-    text.textContent = obj.Plot;
+    text.setAttribute('class', 'card-text');
+    director.textContent = "Director(s): ";
+    director.textContent += obj.Director;
+    writers.textContent = "Writers(s): ";
+    writers.textContent += obj.Writer;
+    actors.textContent = "Actors: ";
+    actors.textContent += obj.Actors;
+    h5.textContent = obj.Title;
+    title.appendChild(ul);
+    plot.textContent = obj.Plot;
+    text.appendChild(plot);
+    text.appendChild(director);
+    text.appendChild(writers);
+    text.appendChild(actors);
+    header.appendChild(h5);
     card.appendChild(header);
     body.appendChild(title);
     body.appendChild(text);
+    
     card.appendChild(body);
     mainCard.appendChild(imgDiv);
     mainCard.appendChild(card);
@@ -61,3 +90,10 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.location.href = "../../index.html";
     }
 });
+
+const logout = document.querySelector("#logout");
+
+logout.addEventListener('click', e => {
+    e.preventDefault();
+    firebase.auth().signOut();
+})

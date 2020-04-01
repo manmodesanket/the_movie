@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/fav.css">
+    <!-- endbuild -->
     <title>User</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary">
-        <div class="nav-content">
-            <a class="navbar-brand" href="#">IMDB</a>
+    <nav class="navbar">
+        <div class="col-3">
+            <a class="navbar-brand" href="#"><h3>IMDB</h3></a>
+            <div class="welcome"></div>
         </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="user.html" class="nav-link">Search</a></li>
+        </ul>
+        <button type="submit" class="btn btn-secondary" id="logout">Logout</button>
     </nav>
     <div class="container" id="fav"></div>
 
-
+    <!-- build:js js/main.js -->
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <!-- endbuild -->
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <!-- build:js js/main.js -->
     <script src="../firebase/firebase.js"></script>
     <script src="scripts/read.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
