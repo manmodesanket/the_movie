@@ -69,7 +69,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                         console.log(doc.data().movies[i]);
                         const movie = doc.data().movies[i];
                         const request = new XMLHttpRequest();
-                        const link = 'http://www.omdbapi.com/?&apikey=41888ccf&t=';
+                        const link = 'https://www.omdbapi.com/?&apikey=41888ccf&t=';
                         request.open('GET', link.concat(movie));
                         request.send();
                         request.addEventListener('readystatechange', () => {
